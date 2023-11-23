@@ -7,14 +7,14 @@ import '../../../shared/shared.dart';
 class LoginFormState{
 
   final bool isPosting;
-  final bool isFromPosted;
+  final bool isFormPosted;
   final bool isValid;
   final Email email;
   final Password password;
 
   LoginFormState({
     this.isPosting = false, 
-    this.isFromPosted = false, 
+    this.isFormPosted = false, 
     this.isValid = false, 
     this.email = const Email.pure(), 
     this.password = const Password.pure()
@@ -22,13 +22,13 @@ class LoginFormState{
 
   LoginFormState copyWith({
     bool? isPosting,
-    bool? isFromPosted,
+    bool? isFormPosted,
     bool? isValid,
     Email? email,
     Password? password,
   }) => LoginFormState(
     isPosting: isPosting ?? this.isPosting,
-    isFromPosted: isFromPosted ?? this.isFromPosted,
+    isFormPosted: isFormPosted ?? this.isFormPosted,
     isValid: isValid ?? this.isValid,
     email: email ?? this.email,
     password: password ?? this.password
@@ -39,7 +39,7 @@ class LoginFormState{
     return '''
   LoginFormState:
     isPosting : $isPosting
-    isFromPosted : $isFromPosted
+    isFromPosted : $isFormPosted
     isValid : $isValid
     email : $email
     password : $password
@@ -82,7 +82,7 @@ class LoginFormNotifier extends StateNotifier<LoginFormState> {
     final password = Password.dirty(state.password.value);
 
     state = state.copyWith(
-      isFromPosted: true,
+      isFormPosted: true,
       email: email,
       password: password,
       isValid: Formz.validate([ email, password ])
