@@ -3,7 +3,7 @@ import 'package:teslo_shop/features/products/domain/domain.dart';
 
 import 'products_repository_provider.dart';
 
-
+//+ Amarra las dos piezas de despues
 final productsProvider = StateNotifierProvider<ProductsNotifier, ProductsState>((ref) {
 
   final productsRepository = ref.watch( productsRepositoryProvider );
