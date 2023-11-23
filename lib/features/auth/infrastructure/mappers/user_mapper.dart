@@ -10,4 +10,3 @@ class UserMapper {
     token: json['token']
   );
 }
-
