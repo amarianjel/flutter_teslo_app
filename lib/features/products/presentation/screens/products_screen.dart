@@ -51,7 +51,7 @@ class _ProductsViewState extends ConsumerState {
   @override
   void initState() {
     super.initState();
-    
+    //+ Infinite scroll
     scrollController.addListener(() {
       if ( (scrollController.position.pixels + 400) >= scrollController.position.maxScrollExtent ) {
         ref.read(productsProvider.notifier).loadNextPage();
