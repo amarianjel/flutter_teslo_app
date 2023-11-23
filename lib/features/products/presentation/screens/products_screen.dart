@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:go_router/go_router.dart';
 import 'package:teslo_shop/features/shared/shared.dart';
 
 import '../providers/products_provider.dart';
+import '../widgets/product_card.dart';
 
 class ProductsScreen extends StatelessWidget {
   const ProductsScreen({super.key});
@@ -79,7 +81,10 @@ class _ProductsViewState extends ConsumerState {
         itemCount: productsState.products.length,
         itemBuilder: (context, index) {
           final product = productsState.products[index];
-          return Text( product.title );
+          return GestureDetector(
+            onTap: () =>  context.push('/product/${ product.id }'),
+            child: ProductCard(product: product)
+          );
         },
       ),
     );
