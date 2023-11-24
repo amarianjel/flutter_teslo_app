@@ -4,6 +4,7 @@ import 'package:formz/formz.dart';
 import '../../../../../config/config.dart';
 import '../../../../shared/shared.dart';
 import '../../../domain/domain.dart';
+import '../providers.dart';
 
 class ProductFormState {
 
@@ -87,7 +88,7 @@ class ProductFormNotifier extends StateNotifier<ProductFormState> {
     _touchedEverything();
     if ( !state.isFormValid ) return false;
 
-    // TODO: regresar
+    // README: regresar
     if ( onSubmitCallback == null ) return false;
 
     final productLike = {
@@ -124,7 +125,6 @@ class ProductFormNotifier extends StateNotifier<ProductFormState> {
       ]),
     );
   }
-
 
   void onTitleChanged( String value ) {
     state = state.copyWith(
@@ -198,3 +198,19 @@ class ProductFormNotifier extends StateNotifier<ProductFormState> {
     );
   }
 }
+
+// Provider
+
+final productFormProvider = StateNotifierProvider.autoDispose.family<ProductFormNotifier, ProductFormState, Product>(
+  (ref, product) {
+
+    // final createUpdateCallback = ref.watch( productsRepositoryProvider ).createUpdateProduct;
+    // TODO: createUpdateCallback
+    // final createUpdateCallback = ref.watch( productsProvider.notifier ).createOrUpdateProduct;
+
+    return ProductFormNotifier(
+      product: product,
+      // onSubmitCallback: createUpdateCallback,
+    );
+  }
+);
