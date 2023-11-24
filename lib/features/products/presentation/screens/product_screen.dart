@@ -13,6 +13,21 @@ class  ProductScreen extends ConsumerWidget {
 
     final productState = ref.watch( productProvider(productId) );
     
-    return Container();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Editar Producto'),
+        actions: [
+          IconButton(onPressed: () {
+  
+          }, 
+          icon: const Icon( Icons.camera_alt_outlined ))
+        ],
+      ),
+      body: Center(child: Text( productState.product?.title ?? 'cargando' )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){},
+        child: const Icon( Icons.save_as_outlined ),
+      ),
+    );
   }
 }
