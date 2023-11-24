@@ -44,6 +44,7 @@ class ProductsDatasourceImpl extends ProductsDatasource {
       return product;
 
     } catch (e) {
+      print(e);
       throw Exception();
     }
   }
