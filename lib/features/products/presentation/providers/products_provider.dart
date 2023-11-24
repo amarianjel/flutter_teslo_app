@@ -10,7 +10,6 @@ final productsProvider = StateNotifierProvider<ProductsNotifier, ProductsState>(
   return ProductsNotifier(
     productsRepository: productsRepository
   );
-  
 });
 
 
@@ -24,10 +23,12 @@ class ProductsNotifier extends StateNotifier<ProductsState> {
   }): super( ProductsState() ) {
     loadNextPage();
   }
+
   // README: Crear o reemplazar de la lista en productos
   Future<bool> createOrUpdateProduct( Map<String,dynamic> productLike ) async {
 
     try {
+      
       final product = await productsRepository.createUpdateProduct(productLike);
       final isProductInList = state.products.any((element) => element.id == product.id );
 

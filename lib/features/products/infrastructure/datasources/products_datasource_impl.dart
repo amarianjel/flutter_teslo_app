@@ -16,7 +16,7 @@ class ProductsDatasourceImpl extends ProductsDatasource {
     BaseOptions(
       baseUrl: Environment.apiUrl,
       headers: {
-        'Authorization': 'Bearer $accessToken'
+        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MWU5MWMxLWM4MmQtNDM0Yy05ZTMyLTY5ZDk1NGEyOGFiNiIsImlhdCI6MTcwMDg2NjgzMywiZXhwIjoxNzAwODc0MDMzfQ.ft3CDY3Z8ZQeOQ9Zh--LFoMvsf0RKh_vZ6a2eXaPvBg'
       }
     )
   );
@@ -28,7 +28,7 @@ class ProductsDatasourceImpl extends ProductsDatasource {
       
       final String? productId = productLike['id'];
       final String method = (productId == null) ? 'POST' : 'PATCH';
-      final String url = (productId == null) ? '/post' : '/products/$productId';
+      final String url = (productId == null) ? '/products' : '/products/$productId';
 
       productLike.remove('id');
 
