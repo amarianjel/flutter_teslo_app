@@ -16,7 +16,7 @@ class ProductsDatasourceImpl extends ProductsDatasource {
     BaseOptions(
       baseUrl: Environment.apiUrl,
       headers: {
-        'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1MWU5MWMxLWM4MmQtNDM0Yy05ZTMyLTY5ZDk1NGEyOGFiNiIsImlhdCI6MTcwMDg2NjgzMywiZXhwIjoxNzAwODc0MDMzfQ.ft3CDY3Z8ZQeOQ9Zh--LFoMvsf0RKh_vZ6a2eXaPvBg'
+        'Authorization': 'Bearer $accessToken'
       }
     )
   );

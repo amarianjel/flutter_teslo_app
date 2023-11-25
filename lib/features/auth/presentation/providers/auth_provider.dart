@@ -26,7 +26,9 @@ class AuthNotifier extends StateNotifier<AuthState> {
   AuthNotifier({
     required this.authRepository,
     required this.keyValueStorageService,
-  }): super( AuthState() );
+  }): super( AuthState() ){
+    checkAuthStatus();  //+ Chekea el estado para cambiar el router
+  }
   
 
   Future<void> loginUser( String email, String password ) async {

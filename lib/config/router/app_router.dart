@@ -11,8 +11,8 @@ final goRouterProvider = Provider((ref){
   final goRouterNotifier = ref.read( goRouterNotifierProvider );
 
   return GoRouter(
-    // FIXME: Cambiar el inicial por splash
-    initialLocation: '/',
+    // README: Siempre esta presente, por si hay demoras
+    initialLocation: '/splash',
     refreshListenable: goRouterNotifier,
     routes: [
 
@@ -46,7 +46,7 @@ final goRouterProvider = Provider((ref){
     ],
     ///README: Bloquear si no se está autenticado de alguna manera
     redirect: (context, state) {
-      
+      print(state);
       final isGoingTo = state.subloc;
       final authStatus = goRouterNotifier.authStatus;
       // print('GoRouter authStatus: $authStatus, isGoingTo: $isGoingTo');
